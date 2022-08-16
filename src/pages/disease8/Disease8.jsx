@@ -18,121 +18,10 @@ import {
   getAccessToken,
   setData,
 } from "../../config/LocalStorage";
+import HAH from "../../assets/images/HAH.png";
+import HAL from "../../assets/images/HAL.png";
 import "./Disease8.scss";
 const { TabPane } = Tabs;
-const columns = [
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Gender",
-    dataIndex: "Gender",
-    key: "Gender",
-  },
-  {
-    title: "Cholesterol",
-    dataIndex: "Cholesterol",
-    key: "Cholesterol",
-  },
-  {
-    title: "Pulse",
-    dataIndex: "Pulse",
-    key: "Pulse",
-  },
-  {
-    title: "Smoke",
-    dataIndex: "Smoke",
-    key: "Smoke",
-  },
-  {
-    title: "Alcohol",
-    dataIndex: "Alcohol",
-    key: "Alcohol",
-  },
-  {
-    title: "Risk",
-    dataIndex: "Risk",
-    key: "Risk",
-  },
-];
-
-const columnsW = [
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Gender",
-    dataIndex: "Gender",
-    key: "Gender",
-  },
-  {
-    title: "Anxiety",
-    dataIndex: "Anxiety",
-    key: "Anxiety",
-  },
-  {
-    title: "Shortness of breath",
-    dataIndex: "Shortness_of_breath",
-    key: "Shortness_of_breath",
-  },
-  {
-    title: "Smoke",
-    dataIndex: "Smoke",
-    key: "Smoke",
-  },
-  {
-    title: "Alcohol",
-    dataIndex: "Alcohol",
-    key: "Alcohol",
-  },
-  {
-    title: "Risk",
-    dataIndex: "Risk",
-    key: "Risk",
-  },
-];
-
-const columnsP = [
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Gender",
-    dataIndex: "Gender",
-    key: "Gender",
-  },
-  {
-    title: "Shortness of breath",
-    dataIndex: "Shortness_of_breath",
-    key: "Shortness_of_breath",
-  },
-  {
-    title: "Pulse",
-    dataIndex: "Pulse",
-    key: "Pulse",
-  },
-  {
-    title: "Smoke",
-    dataIndex: "Smoke",
-    key: "Smoke",
-  },
-  {
-    title: "Alcohol",
-    dataIndex: "Alcohol",
-    key: "Alcohol",
-  },
-  {
-    title: "Risk",
-    dataIndex: "Risk",
-    key: "Risk",
-  },
-];
 
 class Disease8 extends Component {
   constructor(props) {
@@ -407,11 +296,20 @@ class Disease8 extends Component {
                 <$Button onClick={this.submit}>View Suggestions</$Button>
               </$Col>
             </$Row>
-            <$Row className="jus-con-cen row-items">
-              <$Col xl={15} style={{ padding: "20px" }}>
-                <$TextArea />
-              </$Col>
-            </$Row>
+            {heart && (heart === "Low" || heart === "Medium") && (
+              <$Row className="">
+                <$Col xl={15} style={{ padding: "20px" }}>
+                  <img src={HAL} style={{ width: "600px" }} />
+                </$Col>
+              </$Row>
+            )}
+            {heart && heart === "High" && (
+              <$Row className="">
+                <$Col xl={15} style={{ padding: "20px" }}>
+                  <img src={HAH} style={{ width: "600px" }} />
+                </$Col>
+              </$Row>
+            )}
           </$Col>
         </$Row>
         <LayoutFooter />
